@@ -1,0 +1,46 @@
+// Calculate Shopping Discount
+#include<stdio.h>
+#include<stdlib.h>
+
+void CalculateDiscount(float fAmount)
+{
+    float fDiscount = 0.0f;
+    float fFinalAmount = 0.0f;
+
+    if(fAmount >= 5000)
+    {
+        fDiscount = fAmount * 20 / 100;
+    }
+    else if(fAmount >= 1000)
+    {
+        fDiscount = fAmount * 10 / 100;
+    }
+    else
+    {
+        fDiscount = 0.0f;
+    }
+
+    fFinalAmount = fAmount - fDiscount;
+
+    printf("Discount     : Rs. %.2f\n", fDiscount);
+    printf("Final Amount : Rs. %.2f\n", fFinalAmount);
+
+}
+int main()
+{
+    
+    float fAmount = 0.0f;
+
+    printf("Enter Purchase amount\n");
+    scanf("%f", &fAmount);
+
+    if(fAmount < 0)
+    {
+        printf("Invalid amount\n");
+        return EXIT_FAILURE;
+    }
+
+    CalculateDiscount(fAmount);
+
+    return EXIT_SUCCESS;
+}
